@@ -62,7 +62,9 @@ jobs:
       - name: Run validation
         id: validation
         working-directory: ./elasticsearch-specification
-        run: node .github/validate-pr --token ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node .github/validate-pr --token ${{ secrets.GITHUB_TOKEN }}
+          env
 
       - name: Find existing comment
         uses: peter-evans/find-comment@v3
