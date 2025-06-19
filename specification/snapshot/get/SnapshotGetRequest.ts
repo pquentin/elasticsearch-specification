@@ -128,5 +128,31 @@ export interface Request extends RequestBase {
      * @availability serverless
      */
     size?: integer
+    /**
+     * Filter snapshots by a comma-separated list of snapshot lifecycle management (SLM) policy names that snapshots belong to.
+     *
+     * You can use wildcards (`*`) and combinations of wildcards followed by exclude patterns starting with `-`.
+     * For example, the pattern `*,-policy-a-\*` will return all snapshots except for those that were created by an SLM policy with a name starting with `policy-a-`.
+     * Note that the wildcard pattern `*` matches all snapshots created by an SLM policy but not those snapshots that were not created by an SLM policy.
+     * To include snapshots that were not created by an SLM policy, you can use the special pattern `_none` that will match all snapshots without an SLM policy.
+     * @availability stack since=7.16.0
+     * @availability serverless
+     */
+    slm_policy_filter?: Name
+    /**
+     * The sort order for the result.
+     * The default behavior is sorting by snapshot start time stamp.
+     * @server_default start_time
+     * @availability stack since=7.14.0
+     * @availability serverless
+     */
+    sort?: SnapshotSort
+    /**
+     * If `true`, returns additional information about each snapshot such as the version of Elasticsearch which took the snapshot, the start and end times of the snapshot, and the number of shards snapshotted.
+     *
+     * NOTE: The parameters `size`, `order`, `after`, `from_sort_value`, `offset`, `slm_policy_filter`, and `sort` are not supported when you set `verbose=false` and the sort order for requests with `verbose=false` is undefined.
+     * @server_default true
+     */
+    verbose?: boolean
   }
 }
