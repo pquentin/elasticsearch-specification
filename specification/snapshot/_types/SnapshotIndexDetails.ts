@@ -20,7 +20,7 @@
 import { ByteSize } from '@_types/common'
 import { integer, long } from '@_types/Numeric'
 
-// comment!
+// new comment!
 export class IndexDetails {
   shard_count: integer
   size?: ByteSize
