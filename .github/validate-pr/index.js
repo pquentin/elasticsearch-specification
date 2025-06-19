@@ -60,7 +60,7 @@ async function run() {
   let page = 1
   while (true) {
     const { data } = await octokit.rest.pulls.listFiles({
-      owner: 'elastic',
+      owner: 'pquentin',
       repo: 'elasticsearch-specification',
       pull_number: context.payload.pull_request.number,
       page,
