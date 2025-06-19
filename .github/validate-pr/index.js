@@ -145,8 +145,10 @@ console.log(file)
 
     core.setOutput('has_results', 'true')
     core.setOutput('comment_body', comment)
+console.log('comment!')
   } else {
     core.setOutput('has_results', 'false')
+console.log('no comment!')
   }
 
   core.info('Done!')
