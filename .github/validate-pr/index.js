@@ -78,6 +78,7 @@ async function run() {
     }
   }
 
+console.log(files)
   const specFiles = files.filter(
     (file) => file.includes('specification') && !file.includes('compiler/test')
   )
