@@ -12,10 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check pull request was opened from branch
-        if: github.event.pull_request.head.repo.full_name != 'elastic/elasticsearch-specification'
-        run: echo "Validation is not supported from forks"; exit 1
-        
       - uses: actions/checkout@v4
         with:
           path: ./elasticsearch-specification
