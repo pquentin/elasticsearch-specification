@@ -121,6 +121,9 @@
     },
     "snapshot.get": {
       "request": [
+        "Request: missing json spec query parameter 'sort'",
+        "Request: missing json spec query parameter 'slm_policy_filter'",
+        "Request: missing json spec query parameter 'verbose'",
         "Request: missing json spec query parameter 'state'"
       ],
       "response": []
