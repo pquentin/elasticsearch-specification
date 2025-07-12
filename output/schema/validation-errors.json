@@ -9,13 +9,13 @@
     },
     "cluster.get_component_template": {
       "request": [
-        "Request: query parameter 'flat_settings' does not exist in the json spec"
+        "Request: missing json spec query parameter 'settings_filter'"
       ],
       "response": []
     },
     "cluster.put_component_template": {
       "request": [
-        "Request: missing json spec query parameter 'timeout'"
+        "Request: missing json spec query parameter 'cause'"
       ],
       "response": []
     },
@@ -34,6 +34,18 @@
         "Request: query parameter 'allow_no_indices' does not exist in the json spec",
         "Request: query parameter 'expand_wildcards' does not exist in the json spec",
         "Request: query parameter 'ignore_unavailable' does not exist in the json spec"
+      ],
+      "response": []
+    },
+    "esql.async_query_get": {
+      "request": [
+        "Request: missing json spec query parameter 'format'"
+      ],
+      "response": []
+    },
+    "get": {
+      "request": [
+        "Request: missing json spec query parameter '_source_exclude_vectors'"
       ],
       "response": []
     },
@@ -73,12 +85,6 @@
       ],
       "response": []
     },
-    "open_point_in_time": {
-      "request": [
-        "Request: query parameter 'max_concurrent_shard_requests' does not exist in the json spec"
-      ],
-      "response": []
-    },
     "reindex": {
       "request": [
         "Request: query parameter 'require_alias' does not exist in the json spec",
@@ -86,9 +92,14 @@
       ],
       "response": []
     },
+    "search": {
+      "request": [
+        "Request: missing json spec query parameter '_source_exclude_vectors'"
+      ],
+      "response": []
+    },
     "search_mvt": {
       "request": [
-        "Request: query parameter 'grid_agg' does not exist in the json spec",
         "Request: missing json spec query parameter 'track_total_hits'"
       ],
       "response": []
@@ -121,6 +132,9 @@
     },
     "snapshot.get": {
       "request": [
+        "Request: missing json spec query parameter 'sort'",
+        "Request: missing json spec query parameter 'slm_policy_filter'",
+        "Request: missing json spec query parameter 'verbose'",
         "Request: missing json spec query parameter 'state'"
       ],
       "response": []
