@@ -4182,7 +4182,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4732,7 +4733,7 @@
           {
             "in": "query",
             "name": "flat_settings",
-            "description": "Return settings in flat format (default: false)",
+            "description": "Return settings in flat format",
             "deprecated": false,
             "schema": {
               "type": "boolean"
@@ -11877,7 +11878,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -12288,7 +12290,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -14218,7 +14221,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -14442,7 +14446,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -15206,7 +15211,7 @@
           {
             "in": "path",
             "name": "index",
-            "description": "The name of the index to explain",
+            "description": "Comma-separated list of index names to explain",
             "required": true,
             "deprecated": false,
             "schema": {
@@ -18440,7 +18445,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -18762,7 +18768,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -18849,7 +18856,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -18930,7 +18938,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19017,7 +19026,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19104,7 +19114,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19191,7 +19202,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19298,7 +19310,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19388,7 +19401,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19474,7 +19488,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19561,7 +19576,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19648,7 +19664,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19735,7 +19752,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19813,7 +19831,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19900,7 +19919,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -19987,7 +20007,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -20062,7 +20083,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -20162,7 +20184,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -20263,7 +20286,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -20345,7 +20369,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -20429,7 +20454,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -38815,7 +38841,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -39583,36 +39610,6 @@
             "deprecated": false,
             "schema": {
               "type": "number"
-            },
-            "style": "form"
-          },
-          {
-            "in": "query",
-            "name": "slm_policy_filter",
-            "description": "Filter snapshots by a comma-separated list of snapshot lifecycle management (SLM) policy names that snapshots belong to.\n\nYou can use wildcards (`*`) and combinations of wildcards followed by exclude patterns starting with `-`.\nFor example, the pattern `*,-policy-a-\\*` will return all snapshots except for those that were created by an SLM policy with a name starting with `policy-a-`.\nNote that the wildcard pattern `*` matches all snapshots created by an SLM policy but not those snapshots that were not created by an SLM policy.\nTo include snapshots that were not created by an SLM policy, you can use the special pattern `_none` that will match all snapshots without an SLM policy.",
-            "deprecated": false,
-            "schema": {
-              "$ref": "#/components/schemas/_types.Name"
-            },
-            "style": "form"
-          },
-          {
-            "in": "query",
-            "name": "sort",
-            "description": "The sort order for the result.\nThe default behavior is sorting by snapshot start time stamp.",
-            "deprecated": false,
-            "schema": {
-              "$ref": "#/components/schemas/snapshot._types.SnapshotSort"
-            },
-            "style": "form"
-          },
-          {
-            "in": "query",
-            "name": "verbose",
-            "description": "If `true`, returns additional information about each snapshot such as the version of Elasticsearch which took the snapshot, the start and end times of the snapshot, and the number of shards snapshotted.\n\nNOTE: The parameters `size`, `order`, `after`, `from_sort_value`, `offset`, `slm_policy_filter`, and `sort` are not supported when you set `verbose=false` and the sort order for requests with `verbose=false` is undefined.",
-            "deprecated": false,
-            "schema": {
-              "type": "boolean"
             },
             "style": "form"
           }
@@ -98940,18 +98937,6 @@
           }
         ]
       },
-      "snapshot._types.SnapshotSort": {
-        "type": "string",
-        "enum": [
-          "start_time",
-          "duration",
-          "name",
-          "index_count",
-          "repository",
-          "shard_count",
-          "failed_shard_count"
-        ]
-      },
       "snapshot.get.SnapshotResponseItem": {
         "type": "object",
         "properties": {
@@ -108305,7 +108290,7 @@
       "async_search.submit-allow_no_indices": {
         "in": "query",
         "name": "allow_no_indices",
-        "description": "Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)",
+        "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
         "deprecated": false,
         "schema": {
           "type": "boolean"
@@ -108678,7 +108663,7 @@
       "async_search.submit-size": {
         "in": "query",
         "name": "size",
-        "description": "Number of hits to return (default: 10)",
+        "description": "Number of hits to return",
         "deprecated": false,
         "schema": {
           "type": "number"
@@ -108688,7 +108673,7 @@
       "async_search.submit-from": {
         "in": "query",
         "name": "from",
-        "description": "Starting offset (default: 0)",
+        "description": "Starting offset",
         "deprecated": false,
         "schema": {
           "type": "number"
@@ -110183,7 +110168,7 @@
       "cluster.state-allow_no_indices": {
         "in": "query",
         "name": "allow_no_indices",
-        "description": "Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)",
+        "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
         "deprecated": false,
         "schema": {
           "type": "boolean"
@@ -110233,7 +110218,7 @@
       "cluster.state-master_timeout": {
         "in": "query",
         "name": "master_timeout",
-        "description": "Specify timeout for connection to master",
+        "description": "Timeout for waiting for new cluster state in case it is blocked",
         "deprecated": false,
         "schema": {
           "$ref": "#/components/schemas/_types.Duration"
@@ -110629,7 +110614,7 @@
       "eql.search-index": {
         "in": "path",
         "name": "index",
-        "description": "The name of the index to scope the operation",
+        "description": "Comma-separated list of index names to scope the operation",
         "required": true,
         "deprecated": false,
         "schema": {
@@ -110640,6 +110625,7 @@
       "eql.search-allow_no_indices": {
         "in": "query",
         "name": "allow_no_indices",
+        "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
         "deprecated": false,
         "schema": {
           "type": "boolean"
@@ -110669,6 +110655,7 @@
       "eql.search-expand_wildcards": {
         "in": "query",
         "name": "expand_wildcards",
+        "description": "Whether to expand wildcard expression to concrete indices that are open, closed or both.",
         "deprecated": false,
         "schema": {
           "$ref": "#/components/schemas/_types.ExpandWildcards"
@@ -112168,7 +112155,7 @@
       "indices.forcemerge-allow_no_indices": {
         "in": "query",
         "name": "allow_no_indices",
-        "description": "Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)",
+        "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
         "deprecated": false,
         "schema": {
           "type": "boolean"
@@ -113037,7 +113024,7 @@
       "indices.reload_search_analyzers-allow_no_indices": {
         "in": "query",
         "name": "allow_no_indices",
-        "description": "Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)",
+        "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
         "deprecated": false,
         "schema": {
           "type": "boolean"
@@ -116883,7 +116870,7 @@
       "searchable_snapshots.clear_cache-allow_no_indices": {
         "in": "query",
         "name": "allow_no_indices",
-        "description": "Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)",
+        "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
         "deprecated": false,
         "schema": {
           "type": "boolean"
@@ -117364,7 +117351,7 @@
       "shutdown.get_node-node_id": {
         "in": "path",
         "name": "node_id",
-        "description": "Which node for which to retrieve the shutdown status",
+        "description": "Comma-separated list of nodes for which to retrieve the shutdown status",
         "required": true,
         "deprecated": false,
         "schema": {
@@ -118869,7 +118856,8 @@
               }
             }
           }
-        }
+        },
+        "required": true
       },
       "graph.explore": {
         "content": {
@@ -118902,7 +118890,8 @@
               }
             }
           }
-        }
+        },
+        "required": true
       },
       "index": {
         "content": {
@@ -119014,7 +119003,8 @@
               }
             }
           }
-        }
+        },
+        "required": true
       },
       "indices.clone": {
         "content": {
@@ -119374,7 +119364,8 @@
               }
             }
           }
-        }
+        },
+        "required": true
       },
       "indices.simulate_template": {
         "content": {
@@ -119463,7 +119454,8 @@
               }
             }
           }
-        }
+        },
+        "required": true
       },
       "indices.validate_query": {
         "content": {
@@ -119512,7 +119504,8 @@
               ]
             }
           }
-        }
+        },
+        "required": true
       },
       "inference.put": {
         "content": {
@@ -120163,7 +120156,8 @@
               }
             }
           }
-        }
+        },
+        "required": true
       },
       "rollup.rollup_search": {
         "content": {
@@ -120235,7 +120229,8 @@
               }
             }
           }
-        }
+        },
+        "required": true
       },
       "scroll": {
         "content": {
@@ -121552,7 +121547,8 @@
               }
             }
           }
-        }
+        },
+        "required": true
       },
       "termvectors": {
         "content": {
@@ -121845,7 +121841,8 @@
               }
             }
           }
-        }
+        },
+        "required": true
       },
       "watcher.query_watches": {
         "content": {
