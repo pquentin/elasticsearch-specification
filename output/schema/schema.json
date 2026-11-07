@@ -14,8 +14,8 @@
           "visibility": "private"
         }
       },
-      "description": "This API is a diagnostics API and the output should not be relied upon for building applications.",
-      "docUrl": "https://www.elastic.co/guide/en/elasticsearch/reference/current/delete-desired-balance.html",
+      "description": "This API is a diagnostics API and the output should not be relied upon for building applications",
+      "docUrl": null,
       "name": "_internal.delete_desired_balance",
       "request": null,
       "requestBodyRequired": false,
@@ -39,8 +39,8 @@
           "visibility": "private"
         }
       },
-      "description": "Deletes the desired nodes. Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.",
-      "docUrl": "https://www.elastic.co/guide/en/elasticsearch/reference/current/delete-desired-nodes.html",
+      "description": "Designed for indirect use by ECE/ESS and ECK, direct use is not supported.",
+      "docUrl": null,
       "name": "_internal.delete_desired_nodes",
       "request": null,
       "requestBodyRequired": false,
@@ -64,8 +64,8 @@
           "visibility": "private"
         }
       },
-      "description": "This API is a diagnostics API and the output should not be relied upon for building applications.",
-      "docUrl": "https://www.elastic.co/guide/en/elasticsearch/reference/current/get-desired-balance.html",
+      "description": "This API is a diagnostics API and the output should not be relied upon for building applications",
+      "docUrl": null,
       "name": "_internal.get_desired_balance",
       "request": null,
       "requestBodyRequired": false,
@@ -89,8 +89,8 @@
           "visibility": "private"
         }
       },
-      "description": "Gets the latest desired nodes. Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.",
-      "docUrl": "https://www.elastic.co/guide/en/elasticsearch/reference/current/get-desired-nodes.html",
+      "description": "Gets the latest desired nodes",
+      "docUrl": null,
       "name": "_internal.get_desired_nodes",
       "request": null,
       "requestBodyRequired": false,
@@ -110,12 +110,12 @@
     {
       "availability": {
         "stack": {
-          "stability": "stable",
+          "stability": "experimental",
           "visibility": "private"
         }
       },
       "description": "Prevalidates node removal from the cluster",
-      "docUrl": "https://www.elastic.co/guide/en/elasticsearch/reference/master/prevalidate-node-removal-api.html",
+      "docUrl": null,
       "name": "_internal.prevalidate_node_removal",
       "request": null,
       "requestBodyRequired": false,
@@ -139,8 +139,8 @@
           "visibility": "private"
         }
       },
-      "description": "Updates the desired nodes. Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.",
-      "docUrl": "https://www.elastic.co/guide/en/elasticsearch/reference/current/update-desired-nodes.html",
+      "description": "Designed for indirect use by ECE/ESS and ECK, direct use is not supported.",
+      "docUrl": null,
       "name": "_internal.update_desired_nodes",
       "request": null,
       "requestBodyRequired": true,
@@ -626,6 +626,38 @@
             "GET"
           ],
           "path": "/_cat/allocation/{node_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Get circuit breakers statistics",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch#TODO",
+      "name": "cat.circuit_breaker",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "text/plain",
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_cat/circuit_breaker"
+        },
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_cat/circuit_breaker/{circuit_breaker_patterns}"
         }
       ]
     },
@@ -2290,7 +2322,7 @@
         "name": "Request",
         "namespace": "_global.close_point_in_time"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -3255,7 +3287,7 @@
           "visibility": "private"
         }
       },
-      "description": "Deletes a connector secret.",
+      "description": "Deletes a connector secret",
       "docUrl": null,
       "name": "connector.secret_delete",
       "request": null,
@@ -3280,7 +3312,7 @@
           "visibility": "private"
         }
       },
-      "description": "Retrieves a secret stored by Connectors.",
+      "description": "Retrieves a secret stored by Connectors",
       "docUrl": null,
       "name": "connector.secret_get",
       "request": null,
@@ -3305,7 +3337,7 @@
           "visibility": "private"
         }
       },
-      "description": "Creates a secret for a Connector.",
+      "description": "Creates a secret for a Connector",
       "docUrl": null,
       "name": "connector.secret_post",
       "request": null,
@@ -3330,7 +3362,7 @@
           "visibility": "private"
         }
       },
-      "description": "Creates or updates a secret for a Connector.",
+      "description": "Creates or updates a secret for a Connector",
       "docUrl": null,
       "name": "connector.secret_put",
       "request": null,
@@ -5078,6 +5110,158 @@
     },
     {
       "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Delete one or more ES|QL data sources. Fails with 409 if any dataset references them.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-data-source-delete",
+      "name": "esql.delete_data_source",
+      "request": null,
+      "requestBodyRequired": false,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "path": "/_query/data_source/{name}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Delete one or more ES|QL datasets.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-dataset-delete",
+      "name": "esql.delete_dataset",
+      "request": null,
+      "requestBodyRequired": false,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "path": "/_query/dataset/{name}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Delete a non-materialized VIEW for ESQL.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-view-delete",
+      "name": "esql.delete_view",
+      "request": null,
+      "requestBodyRequired": false,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "path": "/_query/view/{name}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Get one or more ES|QL data sources. Secret setting values are returned masked.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-data-source-get",
+      "name": "esql.get_data_source",
+      "request": null,
+      "requestBodyRequired": false,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_query/data_source/{name}"
+        },
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_query/data_source"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Get one or more ES|QL datasets.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-dataset-get",
+      "name": "esql.get_dataset",
+      "request": null,
+      "requestBodyRequired": false,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_query/dataset/{name}"
+        },
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_query/dataset"
+        }
+      ]
+    },
+    {
+      "availability": {
         "serverless": {
           "stability": "experimental",
           "visibility": "public"
@@ -5089,7 +5273,7 @@
         }
       },
       "description": "Get a specific running ES|QL query information.\nReturns an object extended information about a running ES|QL query.",
-      "docUrl": null,
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-get-query",
       "name": "esql.get_query",
       "privileges": {
         "cluster": [
@@ -5108,13 +5292,49 @@
         "name": "Response",
         "namespace": "esql.get_query"
       },
-      "responseMediaType": [],
+      "responseMediaType": [
+        "application/json"
+      ],
       "urls": [
         {
           "methods": [
             "GET"
           ],
           "path": "/_query/queries/{id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Get a non-materialized VIEW for ESQL.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-view-get",
+      "name": "esql.get_view",
+      "request": null,
+      "requestBodyRequired": false,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_query/view/{name}"
+        },
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_query/view"
         }
       ]
     },
@@ -5131,7 +5351,7 @@
         }
       },
       "description": "Get running ES|QL queries information.\nReturns an object containing IDs and other information about the running ES|QL queries.",
-      "docUrl": null,
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-list-queries",
       "name": "esql.list_queries",
       "privileges": {
         "cluster": [
@@ -5159,6 +5379,90 @@
             "GET"
           ],
           "path": "/_query/queries"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Creates or replaces an ES|QL data source.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-data-source-put",
+      "name": "esql.put_data_source",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_query/data_source/{name}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Creates or replaces an ES|QL dataset referencing a parent data source.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-dataset-put",
+      "name": "esql.put_dataset",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_query/dataset/{name}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Creates a non-materialized VIEW for ESQL.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-view-put",
+      "name": "esql.put_view",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_query/view/{name}"
         }
       ]
     },
@@ -5196,6 +5500,59 @@
             "POST"
           ],
           "path": "/_query"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "private"
+        }
+      },
+      "description": "Get live ES|QL datasource admission gauges (used, limit, untracked, waiters, permits, rescues). Sample during load; after-query occupancy is idle. Core GET /_nodes/stats is not pluggable for this plugin.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-stats",
+      "name": "esql.stats",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_esql/stats"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Tests whether the supplied data source configuration can establish a live connection. The data source does not need to exist in cluster state — this endpoint is intended for validating a new configuration before saving it.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-esql-data-source-test-connection",
+      "name": "esql.test_data_source_connection",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "POST"
+          ],
+          "path": "/_query/data_source/_test"
         }
       ]
     },
@@ -5455,7 +5812,7 @@
           "visibility": "private"
         }
       },
-      "description": "Deletes a secret stored by Fleet.",
+      "description": "Deletes a secret stored by Fleet",
       "docUrl": null,
       "name": "fleet.delete_secret",
       "request": null,
@@ -5480,7 +5837,7 @@
           "visibility": "private"
         }
       },
-      "description": "Retrieves a secret stored by Fleet.",
+      "description": "Retrieves a secret stored by Fleet",
       "docUrl": null,
       "name": "fleet.get_secret",
       "request": null,
@@ -5596,7 +5953,7 @@
           "visibility": "private"
         }
       },
-      "description": "Creates a secret stored by Fleet.",
+      "description": "Creates a secret stored by Fleet",
       "docUrl": null,
       "name": "fleet.post_secret",
       "request": null,
@@ -5638,7 +5995,7 @@
         "name": "Request",
         "namespace": "fleet.search"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -5878,7 +6235,7 @@
         "name": "Request",
         "namespace": "graph.explore"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -6154,7 +6511,7 @@
         "name": "Request",
         "namespace": "ilm.move_to_step"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -6199,7 +6556,7 @@
         "name": "Request",
         "namespace": "ilm.put_lifecycle"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -6481,7 +6838,7 @@
         "name": "Request",
         "namespace": "indices.analyze"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -7027,7 +7384,7 @@
         }
       },
       "description": "Delete data stream options.\nRemoves the data stream options from a data stream.",
-      "docUrl": "https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-indices-delete-data-stream-options",
       "name": "indices.delete_data_stream_options",
       "request": {
         "name": "Request",
@@ -7755,6 +8112,31 @@
     },
     {
       "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Get data stream mappings",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-indices-get-data-stream-mappings",
+      "name": "indices.get_data_stream_mappings",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_data_stream/{name}/_mappings"
+        }
+      ]
+    },
+    {
+      "availability": {
         "serverless": {
           "stability": "stable",
           "visibility": "public"
@@ -7766,7 +8148,7 @@
       },
       "description": "Get data stream options.\n\nGet the data stream options configuration of one or more data streams.",
       "docTag": "data stream",
-      "docUrl": "https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-indices-get-data-stream-options",
       "name": "indices.get_data_stream_options",
       "request": {
         "name": "Request",
@@ -8370,7 +8752,7 @@
         "name": "Request",
         "namespace": "indices.put_data_lifecycle"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -8392,6 +8774,31 @@
     },
     {
       "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Update data stream mappings",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-indices-put-data-stream-mappings",
+      "name": "indices.put_data_stream_mappings",
+      "request": null,
+      "requestBodyRequired": true,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_data_stream/{name}/_mappings"
+        }
+      ]
+    },
+    {
+      "availability": {
         "serverless": {
           "stability": "stable",
           "visibility": "public"
@@ -8403,13 +8810,13 @@
       },
       "description": "Update data stream options.\nUpdate the data stream options of the specified data streams.",
       "docTag": "data stream",
-      "docUrl": "https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-indices-put-data-stream-options",
       "name": "indices.put_data_stream_options",
       "request": {
         "name": "Request",
         "namespace": "indices.put_data_stream_options"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -8798,6 +9205,31 @@
     {
       "availability": {
         "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Remove an index block",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-indices-remove-block",
+      "name": "indices.remove_block",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "path": "/{index}/_block/{block}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
           "since": "8.13.0",
           "stability": "stable"
         }
@@ -9037,7 +9469,7 @@
         "name": "Request",
         "namespace": "indices.shrink"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9171,7 +9603,7 @@
         "name": "Request",
         "namespace": "indices.split"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9397,7 +9829,7 @@
         "name": "Request",
         "namespace": "inference.completion"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9414,6 +9846,34 @@
             "POST"
           ],
           "path": "/_inference/completion/{inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Perform decision inference on the service",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-decision",
+      "name": "inference.decision",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "POST"
+          ],
+          "path": "/_inference/decision/{inference_id}"
         }
       ]
     },
@@ -9457,6 +9917,87 @@
             "DELETE"
           ],
           "path": "/_inference/{task_type}/{inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Delete the inference region policy",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-delete-region-policy",
+      "name": "inference.delete_region_policy",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "path": "/_inference/_region_policy"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Perform document extraction inference on the service",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-document-extraction",
+      "name": "inference.document_extraction",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "POST"
+          ],
+          "path": "/_inference/document_extraction/{inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Perform embedding inference on the service",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-embedding",
+      "name": "inference.embedding",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "POST"
+          ],
+          "path": "/_inference/embedding/{inference_id}"
         }
       ]
     },
@@ -9511,6 +10052,31 @@
     },
     {
       "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Get the inference region policy",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-get-region-policy",
+      "name": "inference.get_region_policy",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_inference/_region_policy"
+        }
+      ]
+    },
+    {
+      "availability": {
         "serverless": {
           "stability": "stable",
           "visibility": "public"
@@ -9534,7 +10100,7 @@
         "name": "Request",
         "namespace": "inference.inference"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9613,6 +10179,34 @@
     },
     {
       "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Create a AI21 inference endpoint",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-ai21",
+      "name": "inference.put_ai21",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_inference/{task_type}/{ai21_inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
         "serverless": {
           "stability": "stable",
           "visibility": "public"
@@ -9636,7 +10230,7 @@
         "name": "Request",
         "namespace": "inference.put_alibabacloud"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9681,7 +10275,7 @@
         "name": "Request",
         "namespace": "inference.put_amazonbedrock"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9698,6 +10292,34 @@
             "PUT"
           ],
           "path": "/_inference/{task_type}/{amazonbedrock_inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Create an Amazon SageMaker inference endpoint",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-amazonsagemaker",
+      "name": "inference.put_amazonsagemaker",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_inference/{task_type}/{amazonsagemaker_inference_id}"
         }
       ]
     },
@@ -9726,7 +10348,7 @@
         "name": "Request",
         "namespace": "inference.put_anthropic"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9771,7 +10393,7 @@
         "name": "Request",
         "namespace": "inference.put_azureaistudio"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9816,7 +10438,7 @@
         "name": "Request",
         "namespace": "inference.put_azureopenai"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9861,7 +10483,7 @@
         "name": "Request",
         "namespace": "inference.put_cohere"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9878,6 +10500,90 @@
             "PUT"
           ],
           "path": "/_inference/{task_type}/{cohere_inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Create an Contextual AI inference endpoint",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-contextualai",
+      "name": "inference.put_contextualai",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_inference/{task_type}/{contextualai_inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Create a custom inference endpoint",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-custom",
+      "name": "inference.put_custom",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_inference/{task_type}/{custom_inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Create a DeepSeek inference endpoint",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-deepseek",
+      "name": "inference.put_deepseek",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_inference/{task_type}/{deepseek_inference_id}"
         }
       ]
     },
@@ -9906,7 +10612,7 @@
         "name": "Request",
         "namespace": "inference.put_elasticsearch"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9955,7 +10661,7 @@
         "name": "Request",
         "namespace": "inference.put_elser"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -9972,6 +10678,34 @@
             "PUT"
           ],
           "path": "/_inference/{task_type}/{elser_inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Create a Fireworks AI inference endpoint",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-fireworksai",
+      "name": "inference.put_fireworksai",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_inference/{task_type}/{fireworksai_inference_id}"
         }
       ]
     },
@@ -10000,7 +10734,7 @@
         "name": "Request",
         "namespace": "inference.put_googleaistudio"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -10045,7 +10779,7 @@
         "name": "Request",
         "namespace": "inference.put_googlevertexai"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -10062,6 +10796,34 @@
             "PUT"
           ],
           "path": "/_inference/{task_type}/{googlevertexai_inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Create a Groq inference endpoint",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-groq",
+      "name": "inference.put_groq",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_inference/{task_type}/{groq_inference_id}"
         }
       ]
     },
@@ -10090,7 +10852,7 @@
         "name": "Request",
         "namespace": "inference.put_hugging_face"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -10135,7 +10897,7 @@
         "name": "Request",
         "namespace": "inference.put_jinaai"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -10152,6 +10914,34 @@
             "PUT"
           ],
           "path": "/_inference/{task_type}/{jinaai_inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Create a Llama inference endpoint",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-llama",
+      "name": "inference.put_llama",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_inference/{task_type}/{llama_inference_id}"
         }
       ]
     },
@@ -10180,7 +10970,7 @@
         "name": "Request",
         "namespace": "inference.put_mistral"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -10197,6 +10987,34 @@
             "PUT"
           ],
           "path": "/_inference/{task_type}/{mistral_inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Create an NVIDIA inference endpoint",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-nvidia",
+      "name": "inference.put_nvidia",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_inference/{task_type}/{nvidia_inference_id}"
         }
       ]
     },
@@ -10225,7 +11043,7 @@
         "name": "Request",
         "namespace": "inference.put_openai"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -10242,6 +11060,62 @@
             "PUT"
           ],
           "path": "/_inference/{task_type}/{openai_inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Create an OpenShift AI inference endpoint",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-openshift-ai",
+      "name": "inference.put_openshift_ai",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_inference/{task_type}/{openshiftai_inference_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Create or update the inference region policy",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-region-policy",
+      "name": "inference.put_region_policy",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_inference/_region_policy"
         }
       ]
     },
@@ -10270,7 +11144,7 @@
         "name": "Request",
         "namespace": "inference.put_voyageai"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -10315,7 +11189,7 @@
         "name": "Request",
         "namespace": "inference.put_watsonx"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -10360,7 +11234,7 @@
         "name": "Request",
         "namespace": "inference.rerank"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -10400,7 +11274,7 @@
         "name": "Request",
         "namespace": "inference.sparse_embedding"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -10441,7 +11315,7 @@
         "name": "Request",
         "namespace": "inference.stream_completion"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -10481,7 +11355,7 @@
         "name": "Request",
         "namespace": "inference.text_embedding"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -11087,14 +11961,43 @@
       "availability": {
         "stack": {
           "stability": "experimental",
-          "visibility": "public"
+          "visibility": "private"
         }
       },
-      "description": "Performs a kNN search.",
-      "docUrl": "https://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html",
+      "description": "Estimate the recall and cost of approximate kNN search configurations on a bbq_disk, hnsw, int8_hnsw, int4_hnsw or bbq_hnsw dense_vector field against a more thorough baseline. Requires the read and view_index_metadata index privileges: the field mapping is validated as the calling user. Refused when search.knn_eval.enabled or the index's index.knn_eval.enabled is false. The bounded default baseline is never exact: bbq_disk uses 20% visit with rescore_vector.oversample 100, and the hnsw family uses num_candidates of 100 times k, at least 1000 and at most the 10000 limit (9999 with sampling), with rescore_vector.oversample 100 unless the field is unquantized hnsw, so the beam and the rescored window are the same 100 times k; a knn_settings entry that searches deeper than an approximate baseline (a wider num_candidates or k times oversample beam, or a higher visit_percentage) is rejected, so deeper candidates need an explicit, deeper baseline; an exact full-precision baseline must be requested explicitly with allow_exact_baseline:true and is limited to 100 million vector-by-query comparisons. Each knn_settings entry reports mean recall of the baseline's top-k, not of relevance judgments, plus included/excluded query counts and cost totals. A query is excluded from mean recall when the candidate finds a document scoring above the baseline's lowest top-k score. A baseline returning fewer than k hits fails that query because recall@k is undefined. For hnsw-family fields index_info reports each index's hnsw_early_termination (index.dense_vector.hnsw_enable_early_termination); when true, the baseline and candidates may stop short of num_candidates, and the baseline can fall short of exact. A rescore_window_capped flag reports when search_size multiplied by oversample exceeds the 10,000-vector rescore limit. All configurations run against one point-in-time.",
+      "docUrl": null,
+      "name": "knn_eval",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "path": "/{index}/_knn_eval"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "private"
+        }
+      },
+      "description": "Performs a kNN search",
+      "docUrl": null,
       "name": "knn_search",
       "request": null,
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -15695,7 +16598,7 @@
           "visibility": "private"
         }
       },
-      "description": "Extracts a UI-optimized structure to render flamegraphs from Universal Profiling.",
+      "description": "Extracts a UI-optimized structure to render flamegraphs from Universal Profiling",
       "docUrl": "https://www.elastic.co/guide/en/observability/current/universal-profiling.html",
       "name": "profiling.flamegraph",
       "request": null,
@@ -15723,7 +16626,7 @@
           "visibility": "private"
         }
       },
-      "description": "Extracts raw stacktrace information from Universal Profiling.",
+      "description": "Extracts raw stacktrace information from Universal Profiling",
       "docUrl": "https://www.elastic.co/guide/en/observability/current/universal-profiling.html",
       "name": "profiling.stacktraces",
       "request": null,
@@ -15751,7 +16654,7 @@
           "visibility": "private"
         }
       },
-      "description": "Returns basic information about the status of Universal Profiling.",
+      "description": "Returns basic information about the status of Universal Profiling",
       "docUrl": "https://www.elastic.co/guide/en/observability/current/universal-profiling.html",
       "name": "profiling.status",
       "request": null,
@@ -15776,7 +16679,7 @@
           "visibility": "private"
         }
       },
-      "description": "Extracts a list of topN functions from Universal Profiling.",
+      "description": "Extracts a list of topN functions from Universal Profiling",
       "docUrl": "https://www.elastic.co/guide/en/observability/current/universal-profiling.html",
       "name": "profiling.topn_functions",
       "request": null,
@@ -15794,6 +16697,163 @@
             "POST"
           ],
           "path": "/_profiling/topn/functions"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Create or update named project routing expressions",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch#TODO",
+      "name": "project.create_many_routing",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_project_routing"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Create or update named project routing expression",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch#TODO",
+      "name": "project.create_routing",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_project_routing/{name}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Delete named project routing expression",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch#TODO",
+      "name": "project.delete_routing",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "path": "/_project_routing/{name}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Get named project routing expressions",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch#TODO",
+      "name": "project.get_many_routing",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_project_routing"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "public"
+        }
+      },
+      "description": "Get named project routing expression",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch#TODO",
+      "name": "project.get_routing",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_project_routing/{name}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Return tags defined for the project",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch-serverless/operation/operation-project-tags",
+      "name": "project.tags",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "path": "/_project/tags"
         }
       ]
     },
@@ -16295,6 +17355,81 @@
     },
     {
       "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Cancel a reindex operation",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cancel-reindex",
+      "name": "reindex_cancel",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "POST"
+          ],
+          "path": "/_reindex/{task_id}/_cancel"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Get information for a reindex operation",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-get-reindex",
+      "name": "reindex_get",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_reindex/{task_id}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "List all running reindex operations",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-list-reindex",
+      "name": "reindex_list",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_reindex"
+        }
+      ]
+    },
+    {
+      "availability": {
         "serverless": {
           "stability": "stable",
           "visibility": "private"
@@ -16354,7 +17489,7 @@
         "name": "Request",
         "namespace": "_global.render_search_template"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -16745,7 +17880,7 @@
         "name": "Request",
         "namespace": "_global.scripts_painless_execute"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -18081,6 +19216,35 @@
     },
     {
       "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Clone an API key. Creates a new API key with the same role descriptors as an existing key, with a new name, id, and optional expiration and metadata.",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-security-clone-api-key",
+      "name": "security.clone_api_key",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "POST",
+            "PUT"
+          ],
+          "path": "/_security/api_key/clone"
+        }
+      ]
+    },
+    {
+      "availability": {
         "serverless": {
           "stability": "stable",
           "visibility": "public"
@@ -18457,6 +19621,31 @@
             "DELETE"
           ],
           "path": "/_security/user/{username}"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "private"
+        }
+      },
+      "description": "Delete a user-managed service account",
+      "docUrl": null,
+      "name": "security.delete_user_managed_service_account",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "path": "/_security/service/{namespace}/{service}"
         }
       ]
     },
@@ -19058,6 +20247,34 @@
             "GET"
           ],
           "path": "/_security/settings"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Get security statistics for all nodes",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-security-get-stats",
+      "name": "security.get_stats",
+      "request": null,
+      "requestBodyRequired": false,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_security/stats"
         }
       ]
     },
@@ -19737,6 +20954,34 @@
     },
     {
       "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "private"
+        }
+      },
+      "description": "Create or update a user-managed service account",
+      "docUrl": null,
+      "name": "security.put_user_managed_service_account",
+      "request": null,
+      "requestBodyRequired": true,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "PUT"
+          ],
+          "path": "/_security/service/{namespace}/{service}"
+        }
+      ]
+    },
+    {
+      "availability": {
         "serverless": {
           "stability": "stable",
           "visibility": "public"
@@ -19823,6 +21068,35 @@
             "POST"
           ],
           "path": "/_security/_query/role"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "experimental",
+          "visibility": "private"
+        }
+      },
+      "description": "Find user-managed service accounts with a query",
+      "docUrl": null,
+      "name": "security.query_service_accounts",
+      "request": null,
+      "requestBodyRequired": false,
+      "requestMediaType": [
+        "application/json"
+      ],
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "path": "/_security/_query/service"
         }
       ]
     },
@@ -20785,7 +22059,7 @@
         "name": "Request",
         "namespace": "slm.put_lifecycle"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -21743,6 +23017,86 @@
     },
     {
       "availability": {
+        "stack": {
+          "featureFlag": "logs_stream",
+          "stability": "experimental",
+          "visibility": "feature_flag"
+        }
+      },
+      "description": "Disable the Logs Streams feature for this cluster",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch#TODO",
+      "name": "streams.logs_disable",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json",
+        "text/plain"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "POST"
+          ],
+          "path": "/_streams/{name}/_disable"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "featureFlag": "logs_stream",
+          "stability": "experimental",
+          "visibility": "feature_flag"
+        }
+      },
+      "description": "Enable the Logs Streams feature for this cluster",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch#TODO",
+      "name": "streams.logs_enable",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json",
+        "text/plain"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "POST"
+          ],
+          "path": "/_streams/{name}/_enable"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "featureFlag": "logs_stream",
+          "stability": "experimental",
+          "visibility": "feature_flag"
+        }
+      },
+      "description": "Return the current status of the streams feature for each streams type",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch#TODO",
+      "name": "streams.status",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/_streams/status"
+        }
+      ]
+    },
+    {
+      "availability": {
         "serverless": {
           "stability": "stable",
           "visibility": "public"
@@ -22189,7 +23543,7 @@
         "name": "Request",
         "namespace": "_global.terms_enum"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -22478,7 +23832,7 @@
           "visibility": "public"
         }
       },
-      "description": "Retrieves transform usage information for transform nodes.",
+      "description": "Retrieves transform usage information for transform nodes",
       "docUrl": "https://www.elastic.co/guide/en/elasticsearch/reference/current/get-transform-node-stats.html",
       "name": "transform.get_node_stats",
       "request": null,
@@ -22776,6 +24130,31 @@
             "POST"
           ],
           "path": "/_transform/{transform_id}/_schedule_now"
+        }
+      ]
+    },
+    {
+      "availability": {
+        "stack": {
+          "stability": "stable",
+          "visibility": "public"
+        }
+      },
+      "description": "Set upgrade_mode for transform indices",
+      "docUrl": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-transform-set-upgrade-mode",
+      "name": "transform.set_upgrade_mode",
+      "request": null,
+      "requestBodyRequired": false,
+      "response": null,
+      "responseMediaType": [
+        "application/json"
+      ],
+      "urls": [
+        {
+          "methods": [
+            "POST"
+          ],
+          "path": "/_transform/set_upgrade_mode"
         }
       ]
     },
@@ -23383,7 +24762,7 @@
         "name": "Request",
         "namespace": "watcher.put_watch"
       },
-      "requestBodyRequired": false,
+      "requestBodyRequired": true,
       "requestMediaType": [
         "application/json"
       ],
@@ -96293,7 +97672,7 @@
           }
         },
         {
-          "description": "Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)",
+          "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
           "name": "allow_no_indices",
           "required": false,
           "type": {
@@ -96743,7 +98122,7 @@
           }
         },
         {
-          "description": "Number of hits to return (default: 10)",
+          "description": "Number of hits to return",
           "name": "size",
           "required": false,
           "type": {
@@ -96755,7 +98134,7 @@
           }
         },
         {
-          "description": "Starting offset (default: 0)",
+          "description": "Starting offset",
           "name": "from",
           "required": false,
           "type": {
@@ -120256,7 +121635,7 @@
       "path": [],
       "query": [
         {
-          "description": "Return settings in flat format (default: false)",
+          "description": "Return settings in flat format",
           "name": "flat_settings",
           "required": false,
           "type": {
@@ -121398,7 +122777,7 @@
       ],
       "query": [
         {
-          "description": "Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)",
+          "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
           "name": "allow_no_indices",
           "required": false,
           "serverDefault": true,
@@ -121462,7 +122841,7 @@
           }
         },
         {
-          "description": "Specify timeout for connection to master",
+          "description": "Timeout for waiting for new cluster state in case it is blocked",
           "name": "master_timeout",
           "required": false,
           "serverDefault": "30s",
@@ -132630,7 +134009,7 @@
       },
       "path": [
         {
-          "description": "The name of the index to scope the operation",
+          "description": "Comma-separated list of index names to scope the operation",
           "name": "index",
           "required": true,
           "type": {
@@ -132644,6 +134023,7 @@
       ],
       "query": [
         {
+          "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
           "name": "allow_no_indices",
           "required": false,
           "serverDefault": true,
@@ -132682,6 +134062,7 @@
           }
         },
         {
+          "description": "Whether to expand wildcard expression to concrete indices that are open, closed or both.",
           "name": "expand_wildcards",
           "required": false,
           "serverDefault": "open",
@@ -149068,7 +150449,7 @@
       },
       "path": [
         {
-          "description": "The name of the index to explain",
+          "description": "Comma-separated list of index names to explain",
           "name": "index",
           "required": true,
           "type": {
@@ -149870,7 +151251,7 @@
       ],
       "query": [
         {
-          "description": "Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)",
+          "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
           "name": "allow_no_indices",
           "required": false,
           "type": {
@@ -156597,7 +157978,7 @@
       ],
       "query": [
         {
-          "description": "Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)",
+          "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
           "name": "allow_no_indices",
           "required": false,
           "type": {
@@ -208320,7 +209701,6 @@
             "description": "",
             "version": "7.0.0"
           },
-          "description": "Default document type for items which don't provide one",
           "name": "type",
           "required": false,
           "type": {
@@ -222283,7 +223663,7 @@
           }
         },
         {
-          "description": "Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)",
+          "description": "Whether to allow (1) wildcard index expressions that match no indices and (2) requests where the final resolved set is empty.",
           "name": "allow_no_indices",
           "required": false,
           "type": {
@@ -239353,7 +240733,7 @@
       },
       "path": [
         {
-          "description": "Which node for which to retrieve the shutdown status",
+          "description": "Comma-separated list of nodes for which to retrieve the shutdown status",
           "name": "node_id",
           "required": false,
           "type": {
@@ -242292,7 +243672,7 @@
           }
         }
       ],
-      "specLocation": "snapshot/_types/SnapshotIndexDetails.ts#L23-L28"
+      "specLocation": "snapshot/_types/SnapshotIndexDetails.ts#L24-L29"
     },
     {
       "kind": "interface",
@@ -243612,55 +244992,6 @@
         }
       ],
       "specLocation": "snapshot/_types/SnapshotShardsStatus.ts#L24-L27"
-    },
-    {
-      "kind": "enum",
-      "members": [
-        {
-          "name": "start_time"
-        },
-        {
-          "name": "duration"
-        },
-        {
-          "name": "name"
-        },
-        {
-          "name": "index_count"
-        },
-        {
-          "availability": {
-            "serverless": {},
-            "stack": {
-              "since": "7.16.0"
-            }
-          },
-          "name": "repository"
-        },
-        {
-          "availability": {
-            "serverless": {},
-            "stack": {
-              "since": "7.16.0"
-            }
-          },
-          "name": "shard_count"
-        },
-        {
-          "availability": {
-            "serverless": {},
-            "stack": {
-              "since": "7.16.0"
-            }
-          },
-          "name": "failed_shard_count"
-        }
-      ],
-      "name": {
-        "name": "SnapshotSort",
-        "namespace": "snapshot._types"
-      },
-      "specLocation": "snapshot/_types/SnapshotInfo.ts#L73-L93"
     },
     {
       "kind": "interface",
@@ -245273,59 +246604,9 @@
               "namespace": "_types"
             }
           }
-        },
-        {
-          "availability": {
-            "serverless": {},
-            "stack": {
-              "since": "7.16.0"
-            }
-          },
-          "description": "Filter snapshots by a comma-separated list of snapshot lifecycle management (SLM) policy names that snapshots belong to.\n\nYou can use wildcards (`*`) and combinations of wildcards followed by exclude patterns starting with `-`.\nFor example, the pattern `*,-policy-a-\\*` will return all snapshots except for those that were created by an SLM policy with a name starting with `policy-a-`.\nNote that the wildcard pattern `*` matches all snapshots created by an SLM policy but not those snapshots that were not created by an SLM policy.\nTo include snapshots that were not created by an SLM policy, you can use the special pattern `_none` that will match all snapshots without an SLM policy.",
-          "name": "slm_policy_filter",
-          "required": false,
-          "type": {
-            "kind": "instance_of",
-            "type": {
-              "name": "Name",
-              "namespace": "_types"
-            }
-          }
-        },
-        {
-          "availability": {
-            "serverless": {},
-            "stack": {
-              "since": "7.14.0"
-            }
-          },
-          "description": "The sort order for the result.\nThe default behavior is sorting by snapshot start time stamp.",
-          "name": "sort",
-          "required": false,
-          "serverDefault": "start_time",
-          "type": {
-            "kind": "instance_of",
-            "type": {
-              "name": "SnapshotSort",
-              "namespace": "snapshot._types"
-            }
-          }
-        },
-        {
-          "description": "If `true`, returns additional information about each snapshot such as the version of Elasticsearch which took the snapshot, the start and end times of the snapshot, and the number of shards snapshotted.\n\nNOTE: The parameters `size`, `order`, `after`, `from_sort_value`, `offset`, `slm_policy_filter`, and `sort` are not supported when you set `verbose=false` and the sort order for requests with `verbose=false` is undefined.",
-          "name": "verbose",
-          "required": false,
-          "serverDefault": true,
-          "type": {
-            "kind": "instance_of",
-            "type": {
-              "name": "boolean",
-              "namespace": "_builtins"
-            }
-          }
         }
       ],
-      "specLocation": "snapshot/get/SnapshotGetRequest.ts#L27-L158"
+      "specLocation": "snapshot/get/SnapshotGetRequest.ts#L27-L132"
     },
     {
       "kind": "response",
